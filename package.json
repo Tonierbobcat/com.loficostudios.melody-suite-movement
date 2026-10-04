@@ -1,0 +1,17 @@
+{
+  "name": "com.loficostudios.movement",
+  "version": "1.0.0",
+  "displayName": "Movement System",
+  "description": "A reusable movement system for Unity.",
+  "unity": "6000.0",
+  "author": {
+    "name": "Logan"
+  },
+  "samples": [
+    {
+      "displayName": "Demo",
+      "description": "Demo scene showing the Movement System.",
+      "path": "Samples/Demo"
+    }
+  ]
+}
