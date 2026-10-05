@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Movement_System.Runtime.Standard
+namespace MelodySuite.Movement.Runtime
 {
     public abstract class AbstractBasicMovementController : AbstractMovementController
     {

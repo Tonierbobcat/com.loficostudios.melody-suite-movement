@@ -1,9 +1,8 @@
-using System.Numerics;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
-namespace Movement_System.Runtime.Standard
+namespace MelodySuite.Movement.Runtime
 {
     public class BasicThirdPersonMovement : AbstractBasicMovementController
     {

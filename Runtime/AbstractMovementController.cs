@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Movement_System.Runtime
+namespace MelodySuite.Movement.Runtime
 {
     [RequireComponent(typeof(CharacterController))]
     public abstract class AbstractMovementController : MonoBehaviour

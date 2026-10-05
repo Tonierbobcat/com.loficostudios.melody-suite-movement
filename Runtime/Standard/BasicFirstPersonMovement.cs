@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Movement_System.Runtime.Standard
+namespace MelodySuite.Movement.Runtime
 {
     public class BasicFirstPersonMovement : AbstractBasicMovementController
     {
