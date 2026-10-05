@@ -12,7 +12,7 @@ namespace MelodySuite.Movement.Runtime
         
         protected override Vector3 CalculateWishDirection()
         {
-            if (!InputEnabled)
+            if (!inputEnabled)
             {
                 return Vector3.zero;
             }

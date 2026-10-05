@@ -3,7 +3,8 @@
     "rootNamespace": "MelodySuite.Movement.Runtime",
     "references": [
         "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:4307f53044263cf4b835bd812fc161a4"
+        "GUID:4307f53044263cf4b835bd812fc161a4",
+        "GUID:af952bcd32b35e095beced13e1c12f36"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

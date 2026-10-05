@@ -18,9 +18,7 @@ namespace MelodySuite.Movement.Runtime
         private float gravity = 28.6f;
         [SerializeField] 
         private float sprintSpeedMultiplier = 1.5f;
-
-        public bool InputEnabled { get; set; } = true;
-
+        
         protected Vector2 input;
         private float _jumpBufferCounter;
         private bool _jumpPressed;
@@ -63,11 +61,20 @@ namespace MelodySuite.Movement.Runtime
         
         public override void Move(InputAction.CallbackContext context)
         {
+            if (!inputEnabled)
+            {
+                input = Vector2.zero;
+                return;
+            }
             input = context.ReadValue<Vector2>();
         }
         
         public override void Jump(InputAction.CallbackContext context)
         {
+            if (!inputEnabled)
+            {
+                return;
+            }
             if (context.performed)
             {
                 _jumpPressed = true;
@@ -76,6 +83,10 @@ namespace MelodySuite.Movement.Runtime
 
         public override void Sprint(InputAction.CallbackContext context)
         {
+            if (!inputEnabled)
+            {
+                return;
+            }
             if (context.performed)
             {
                 Sprinting = true;

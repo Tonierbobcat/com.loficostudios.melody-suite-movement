@@ -1,6 +1,9 @@
 {
   "name": "com.loficostudios.movement",
   "version": "1.0.0",
+  "dependencies": {
+    "com.loficostudios.core": "1.0.0"
+  },
   "displayName": "Movement System",
   "description": "A reusable movement system for Unity.",
   "unity": "6000.0",

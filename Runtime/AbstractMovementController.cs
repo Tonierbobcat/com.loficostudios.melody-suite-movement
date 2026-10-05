@@ -1,10 +1,11 @@
+using MelodySuite.Core.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace MelodySuite.Movement.Runtime
 {
     [RequireComponent(typeof(CharacterController))]
-    public abstract class AbstractMovementController : MonoBehaviour
+    public abstract class AbstractMovementController : PlayerBehaviour
     {
         [SerializeField] private LayerMask whatIsGround;
         
@@ -22,15 +23,13 @@ namespace MelodySuite.Movement.Runtime
         
         public Vector3 Velocity => velocity;
 
-        public bool InputEnabled { get; set; } = true;
-
         protected virtual void Awake()
         {
             if (!MovementUtility.ValidateRigidBodyOrDisable(this))
                 return;
             MovementUtility.ValidateCharacterControllerOrDisable(this, out characterController);
         }
-
+        
         protected abstract void CalculateVelocity(float delta);
         
         private void Update()

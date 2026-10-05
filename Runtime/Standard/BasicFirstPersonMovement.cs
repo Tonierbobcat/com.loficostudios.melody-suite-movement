@@ -7,7 +7,7 @@ namespace MelodySuite.Movement.Runtime
         [SerializeField] private Camera cam;
         protected override Vector3 CalculateWishDirection()
         {
-            if (!InputEnabled)
+            if (!inputEnabled)
             {
                 return Vector3.zero;
             }

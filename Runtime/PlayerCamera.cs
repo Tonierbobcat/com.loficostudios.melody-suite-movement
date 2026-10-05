@@ -1,4 +1,5 @@
 using System;
+using MelodySuite.Core.Runtime;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -49,7 +50,7 @@ namespace MelodySuite.Movement.Runtime
         public float m_fov = 60f;
     }
 
-    public class PlayerCamera : MonoBehaviour
+    public class PlayerCamera : PlayerBehaviour
     {
         [SerializeField]
         private FirstPersonCameraSettings m_firstPersonCameraSettings = new();
@@ -58,9 +59,7 @@ namespace MelodySuite.Movement.Runtime
     
         [SerializeField]
         private Transform m_cameraPivot;
-
-        [SerializeField] private bool m_inputEnabled = true;
-    
+        
         [SerializeField] private CameraType m_cameraType = CameraType.FirstPerson;
     
         [SerializeField] private InputActionReference look;
@@ -198,19 +197,13 @@ namespace MelodySuite.Movement.Runtime
             controller.Input.InputAction = look;
             ApplySensitivity(axisController, lookSettings, controllerIndex);
         }
-
-        public bool InputEnabled
-        {
-            get => m_inputEnabled;
-            set => m_inputEnabled = value;
-        }
-
+        
         private void HandleFirstPersonUpdate()
         {
         
             _firstPersonCamera.Lens.FieldOfView = m_firstPersonCameraSettings.m_fov;
             var axisController = _firstPersonCamera.GetComponent<CinemachineInputAxisController>();
-            axisController.enabled = m_inputEnabled;
+            axisController.enabled = inputEnabled;
             ApplySensitivity(axisController, m_firstPersonCameraSettings.m_lookSettings, 0);
             ApplySensitivity(axisController, m_firstPersonCameraSettings.m_lookSettings, 1);
         }
@@ -221,7 +214,7 @@ namespace MelodySuite.Movement.Runtime
        
             _thirdPersonCamera.Lens.FieldOfView = m_thirdPersonCameraSettings.m_fov;
             var axisController = _thirdPersonCamera.GetComponent<CinemachineInputAxisController>();
-            axisController.enabled = m_inputEnabled;
+            axisController.enabled = inputEnabled;
             ApplySensitivity(axisController, m_thirdPersonCameraSettings.m_lookSettings, 0);
             ApplySensitivity(axisController, m_thirdPersonCameraSettings.m_lookSettings, 1);
         
@@ -250,7 +243,7 @@ namespace MelodySuite.Movement.Runtime
         {
             if (m_autoChangeCursor)
             {
-                if (m_inputEnabled)
+                if (inputEnabled)
                 {
                     Cursor.lockState = CursorLockMode.Locked;
                     Cursor.visible = false;
